@@ -1,0 +1,26 @@
+.product-title {
+    font-size: 30px;
+    margin: 15px 0;
+    text-align: center;
+}
+.product-description {
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: center;
+}
+.btn-buy {
+    color: black;
+    background-color: gray;
+    border: 1px solid black;
+}
