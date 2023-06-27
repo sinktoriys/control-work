@@ -5,16 +5,31 @@ type Props = {
     title: string
     description: string
     price: number
+    totalData: {
+        totalPrice: number
+    }
+    countTotalCount: (total: number, price: number) => void
 }
-const ProductListItem = (props: Props) => {
+
+const ProductListItem = ({
+    title,
+    description,
+    price,
+    totalData,
+    countTotalCount,
+}: Props) => {
     return (
         <Card className="product" variant="outlined">
             <CardContent>
-                <h4 className="product-title">{props.title}</h4>
-                <div className="product-description">{props.description}</div>
-                <div className="product-price">EUR{props.price}</div>
+                <h4 className="product-title">{title}</h4>
+                <div className="product-description">{description}</div>
+                <div className="product-price">EUR{price}</div>
                 <CardActions className="btn-wrap">
-                    <Button className="btn-buy" variant="outlined">
+                    <Button
+                        className="btn-buy"
+                        variant="outlined"
+                        // onClick={() => countTotalCount(total, price)}
+                    >
                         Buy
                     </Button>
                 </CardActions>

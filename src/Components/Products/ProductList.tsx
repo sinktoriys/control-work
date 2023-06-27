@@ -1,8 +1,16 @@
 import { Button, Grid, Typography } from '@mui/material'
 import ProductListItem from './ProductListItem'
 import productsArray from 'utils/productsArray'
-type Props = {}
-const ProductList = (props: Props) => {
+import Total from 'Components/Total/Total'
+
+type Props = {
+    totalData: {
+        totalPrice: number
+    }
+    countTotalCount: (total: number, price: number) => void
+}
+
+const ProductList = ({ totalData, countTotalCount }: Props) => {
     return (
         <>
             <Typography
@@ -22,15 +30,18 @@ const ProductList = (props: Props) => {
             </Typography>
 
             <Grid container spacing={4}>
-                {productsArray.map((product) => (
-                    <Grid item xs={12} sm={6} md={4}>
+                {productsArray.map(({ id, title, description, price }) => (
+                    <Grid item xs={12} sm={6} md={4} key={id}>
                         <ProductListItem
-                            title={product.title}
-                            description={product.description}
-                            price={product.price}
+                            title={title}
+                            description={description}
+                            price={price}
+                            totalData={totalData}
+                            countTotalCount={countTotalCount}
                         />
                     </Grid>
                 ))}
+                <Total totalData={totalData} />
             </Grid>
         </>
     )
