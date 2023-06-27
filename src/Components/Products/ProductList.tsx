@@ -2,6 +2,7 @@ import { Button, Grid, Typography } from '@mui/material'
 import ProductListItem from './ProductListItem'
 import productsArray from 'utils/productsArray'
 import Total from 'Components/Total/Total'
+import Currency from 'Components/Currency/Currency'
 
 type Props = {
     totalData: {
@@ -23,10 +24,11 @@ const ProductList = ({ totalData, countTotalCount }: Props) => {
             >
                 Our Shop page
                 <br />
-                <Button variant="outlined">USD</Button>
+                <Currency />
+                {/* <Button variant="outlined">USD</Button>
                 <Button variant="outlined">EUR</Button>
                 <Button variant="outlined">UAH</Button>
-                <Button variant="outlined">RUB</Button>
+                <Button variant="outlined">RUB</Button> */}
             </Typography>
 
             <Grid container spacing={4}>

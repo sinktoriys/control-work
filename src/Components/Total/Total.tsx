@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, TextField } from '@mui/material'
+// import { Button, TextField } from '@mui/material'
 
 type Props = {
     totalData: {
@@ -8,12 +8,12 @@ type Props = {
 }
 const Total = ({ totalData }: Props) => {
     const [total, setTotal] = useState<number>(0)
-    const changeTotal = () => {
-        setTotal((prevState) => prevState + 1)
-    }
+    // const changeTotal = () => {
+    //     setTotal((prevState) => prevState + 1)
+    // }
     return (
         <>
-            <div className="product-total">total:{totalData.totalPrice}</div>
+            <div className="product-total">total : {totalData.totalPrice}</div>
             {/* <TextField
                 value={total}
                 size="small"
