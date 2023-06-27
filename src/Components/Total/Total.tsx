@@ -14,7 +14,7 @@ const Total = ({ totalData }: Props) => {
     return (
         <>
             <div className="product-total">total:{totalData.totalPrice}</div>
-            <TextField
+            {/* <TextField
                 value={total}
                 size="small"
                 sx={{
@@ -23,7 +23,7 @@ const Total = ({ totalData }: Props) => {
             />
             <Button variant="outlined" onClick={() => changeTotal()}>
                 Total
-            </Button>
+            </Button> */}
         </>
     )
 }

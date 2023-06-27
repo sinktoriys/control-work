@@ -14,13 +14,13 @@ const productsArray:Product[]=[
     price: 750,
 },
 {
-    id:1,
+    id:2,
     title:'iPhone 8',
     description:'This is iPhone 8',
     price:850,
 },
 {
-    id:1,
+    id:3,
     title:'iPhone X',
     description:'This is iPhone X',
     price:1250,

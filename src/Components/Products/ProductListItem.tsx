@@ -2,16 +2,18 @@ import { Button, Card, CardActions, CardContent } from '@mui/material'
 import './ProductListItem.scss'
 
 type Props = {
+    id: number
     title: string
     description: string
     price: number
     totalData: {
         totalPrice: number
     }
-    countTotalCount: (total: number, price: number) => void
+    countTotalCount: (id: number, price: number) => void
 }
 
 const ProductListItem = ({
+    id,
     title,
     description,
     price,
@@ -28,7 +30,7 @@ const ProductListItem = ({
                     <Button
                         className="btn-buy"
                         variant="outlined"
-                        // onClick={() => countTotalCount(total, price)}
+                        onClick={() => countTotalCount(id, price)}
                     >
                         Buy
                     </Button>

@@ -3,6 +3,7 @@ import ProductList from 'Components/Products/ProductList'
 import ProductListItem from 'Components/Products/ProductListItem'
 import Total from 'Components/Total/Total'
 type Props = {
+    id: number
     title: string
     description: string
     price: number
@@ -12,6 +13,7 @@ type Props = {
     countTotalCount: (total: number, price: number) => void
 }
 const Main = ({
+    id,
     title,
     description,
     price,
@@ -29,6 +31,7 @@ const Main = ({
                 countTotalCount={countTotalCount}
             />
             <ProductListItem
+                id={id}
                 title={title}
                 description={description}
                 price={price}

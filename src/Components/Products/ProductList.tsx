@@ -7,7 +7,7 @@ type Props = {
     totalData: {
         totalPrice: number
     }
-    countTotalCount: (total: number, price: number) => void
+    countTotalCount: (id: number, price: number) => void
 }
 
 const ProductList = ({ totalData, countTotalCount }: Props) => {
@@ -33,6 +33,7 @@ const ProductList = ({ totalData, countTotalCount }: Props) => {
                 {productsArray.map(({ id, title, description, price }) => (
                     <Grid item xs={12} sm={6} md={4} key={id}>
                         <ProductListItem
+                            id={id}
                             title={title}
                             description={description}
                             price={price}
