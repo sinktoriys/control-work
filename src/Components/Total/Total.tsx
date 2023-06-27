@@ -7,7 +7,7 @@ type Props = {
     }
 }
 const Total = ({ totalData }: Props) => {
-    const [total, setTotal] = useState<number>(0)
+    // const [total, setTotal] = useState<number>(0)
     // const changeTotal = () => {
     //     setTotal((prevState) => prevState + 1)
     // }
