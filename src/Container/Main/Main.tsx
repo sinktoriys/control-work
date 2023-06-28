@@ -1,16 +1,21 @@
 import { Container } from '@mui/material'
 import ProductList from 'Components/Products/ProductList'
 import ProductListItem from 'Components/Products/ProductListItem'
-import Total from 'Components/Total/Total'
+
 type Props = {
     id: number
     title: string
     description: string
     price: number
+
     totalData: {
         totalPrice: number
     }
     countTotalCount: (total: number, price: number) => void
+    totalUsd: {
+        usdNewCurrency: number
+    }
+    priceInUsd: (id: number, totalPrice: number) => void
 }
 const Main = ({
     id,
@@ -19,6 +24,8 @@ const Main = ({
     price,
     totalData,
     countTotalCount,
+    totalUsd,
+    priceInUsd,
 }: Props) => {
     return (
         <Container
@@ -29,6 +36,8 @@ const Main = ({
             <ProductList
                 totalData={totalData}
                 countTotalCount={countTotalCount}
+                totalUsd={totalUsd}
+                priceInUsd={priceInUsd}
             />
             <ProductListItem
                 id={id}
@@ -38,7 +47,6 @@ const Main = ({
                 totalData={totalData}
                 countTotalCount={countTotalCount}
             />
-            <Total totalData={totalData} />
         </Container>
     )
 }

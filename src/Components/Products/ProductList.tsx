@@ -1,7 +1,6 @@
 import { Grid, Typography } from '@mui/material'
 import ProductListItem from './ProductListItem'
 import productsArray from 'utils/productsArray'
-import Total from 'Components/Total/Total'
 import Currency from 'Components/Currency/Currency'
 
 type Props = {
@@ -9,9 +8,18 @@ type Props = {
         totalPrice: number
     }
     countTotalCount: (id: number, price: number) => void
+    totalUsd: {
+        usdNewCurrency: number
+    }
+    priceInUsd: (id: number, totalPrice: number) => void
 }
 
-const ProductList = ({ totalData, countTotalCount }: Props) => {
+const ProductList = ({
+    totalData,
+    countTotalCount,
+    totalUsd,
+    priceInUsd,
+}: Props) => {
     return (
         <>
             <Typography
@@ -24,11 +32,11 @@ const ProductList = ({ totalData, countTotalCount }: Props) => {
             >
                 Our Shop page
                 <br />
-                <Currency />
-                {/* <Button variant="outlined">USD</Button>
-                <Button variant="outlined">EUR</Button>
-                <Button variant="outlined">UAH</Button>
-                <Button variant="outlined">RUB</Button> */}
+                <Currency
+                    totalUsd={totalUsd}
+                    priceInUsd={priceInUsd}
+                    totalData={totalData}
+                />
             </Typography>
 
             <Grid container spacing={4}>
@@ -44,7 +52,9 @@ const ProductList = ({ totalData, countTotalCount }: Props) => {
                         />
                     </Grid>
                 ))}
-                <Total totalData={totalData} />
+                <div className="product-total">
+                    total : {totalData.totalPrice}
+                </div>
             </Grid>
         </>
     )
