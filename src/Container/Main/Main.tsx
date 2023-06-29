@@ -12,11 +12,8 @@ type Props = {
         totalPrice: number
     }
     countTotalCount: (total: number, price: number) => void
-    totalUsd: {
-        usdNewCurrency: number
-    }
-    priceInUsd: (id: number, totalPrice: number) => void
 }
+
 const Main = ({
     id,
     title,
@@ -24,8 +21,6 @@ const Main = ({
     price,
     totalData,
     countTotalCount,
-    totalUsd,
-    priceInUsd,
 }: Props) => {
     return (
         <Container
@@ -36,8 +31,6 @@ const Main = ({
             <ProductList
                 totalData={totalData}
                 countTotalCount={countTotalCount}
-                totalUsd={totalUsd}
-                priceInUsd={priceInUsd}
             />
             <ProductListItem
                 id={id}

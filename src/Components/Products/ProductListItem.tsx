@@ -21,22 +21,24 @@ const ProductListItem = ({
     countTotalCount,
 }: Props) => {
     return (
-        <Card className="product" variant="outlined">
-            <CardContent>
-                <h4 className="product-title">{title}</h4>
-                <div className="product-description">{description}</div>
-                <div className="product-price">EUR{price}</div>
-                <CardActions className="btn-wrap">
-                    <Button
-                        className="btn-buy"
-                        variant="outlined"
-                        onClick={() => countTotalCount(id, price)}
-                    >
-                        Buy
-                    </Button>
-                </CardActions>
-            </CardContent>
-        </Card>
+        <>
+            <Card className="product" variant="outlined">
+                <CardContent>
+                    <h4 className="product-title">{title}</h4>
+                    <div className="product-description">{description}</div>
+                    <div className="product-price">EUR{price}</div>
+                    <CardActions className="btn-wrap">
+                        <Button
+                            className="btn-buy"
+                            variant="outlined"
+                            onClick={() => countTotalCount(id, price)}
+                        >
+                            Buy
+                        </Button>
+                    </CardActions>
+                </CardContent>
+            </Card>
+        </>
     )
 }
 export default ProductListItem

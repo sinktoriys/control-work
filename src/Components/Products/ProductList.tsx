@@ -1,25 +1,16 @@
 import { Grid, Typography } from '@mui/material'
 import ProductListItem from './ProductListItem'
 import productsArray from 'utils/productsArray'
-import Currency from 'Components/Currency/Currency'
+import { Button } from '@mui/material'
 
 type Props = {
     totalData: {
         totalPrice: number
     }
     countTotalCount: (id: number, price: number) => void
-    totalUsd: {
-        usdNewCurrency: number
-    }
-    priceInUsd: (id: number, totalPrice: number) => void
 }
 
-const ProductList = ({
-    totalData,
-    countTotalCount,
-    totalUsd,
-    priceInUsd,
-}: Props) => {
+const ProductList = ({ totalData, countTotalCount }: Props) => {
     return (
         <>
             <Typography
@@ -32,11 +23,24 @@ const ProductList = ({
             >
                 Our Shop page
                 <br />
-                <Currency
-                    totalUsd={totalUsd}
-                    priceInUsd={priceInUsd}
-                    totalData={totalData}
-                />
+                <>
+                    <Button
+                        variant="outlined"
+                        // onClick={() => countTotalCount(1, 1)}
+                    >
+                        USD:{totalData.totalPrice * 1.09}
+                    </Button>
+
+                    <Button variant="outlined">
+                        EUR:{totalData.totalPrice}
+                    </Button>
+                    <Button variant="outlined">
+                        UAH:{totalData.totalPrice * 40.14}
+                    </Button>
+                    <Button variant="outlined">
+                        RUB:{totalData.totalPrice * 94.39}
+                    </Button>
+                </>
             </Typography>
 
             <Grid container spacing={4}>
@@ -53,7 +57,7 @@ const ProductList = ({
                     </Grid>
                 ))}
                 <div className="product-total">
-                    total : {totalData.totalPrice}
+                    total EUR: {totalData.totalPrice}
                 </div>
             </Grid>
         </>
