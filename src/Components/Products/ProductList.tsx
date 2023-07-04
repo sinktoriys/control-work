@@ -34,17 +34,17 @@ const ProductList = ({
                 <>
                     <Button
                         variant="outlined"
+                        onClick={() => changeNewCurrency(1, 1)}
+                    >
+                        EUR
+                    </Button>
+                    <Button
+                        variant="outlined"
                         onClick={() => changeNewCurrency(1, 1.09)}
                     >
                         USD
                     </Button>
 
-                    <Button
-                        variant="outlined"
-                        onClick={() => changeNewCurrency(1, 1)}
-                    >
-                        EUR
-                    </Button>
                     <Button
                         variant="outlined"
                         onClick={() => changeNewCurrency(1, 40.14)}
