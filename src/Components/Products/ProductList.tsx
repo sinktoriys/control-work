@@ -8,9 +8,17 @@ type Props = {
         totalPrice: number
     }
     countTotalCount: (id: number, price: number) => void
+    currency: {
+        price: number
+    }
+    changeNewCurrency: (id: number, coefficient: number) => void
 }
-
-const ProductList = ({ totalData, countTotalCount }: Props) => {
+const ProductList = ({
+    totalData,
+    countTotalCount,
+    currency,
+    changeNewCurrency,
+}: Props) => {
     return (
         <>
             <Typography
@@ -26,19 +34,28 @@ const ProductList = ({ totalData, countTotalCount }: Props) => {
                 <>
                     <Button
                         variant="outlined"
-                        // onClick={() => countTotalCount(1, 1)}
+                        onClick={() => changeNewCurrency(1, 1.09)}
                     >
-                        USD:{totalData.totalPrice * 1.09}
+                        USD
                     </Button>
 
-                    <Button variant="outlined">
-                        EUR:{totalData.totalPrice}
+                    <Button
+                        variant="outlined"
+                        onClick={() => changeNewCurrency(1, 1)}
+                    >
+                        EUR
                     </Button>
-                    <Button variant="outlined">
-                        UAH:{totalData.totalPrice * 40.14}
+                    <Button
+                        variant="outlined"
+                        onClick={() => changeNewCurrency(1, 40.14)}
+                    >
+                        UAH
                     </Button>
-                    <Button variant="outlined">
-                        RUB:{totalData.totalPrice * 94.39}
+                    <Button
+                        variant="outlined"
+                        onClick={() => changeNewCurrency(1, 0.23)}
+                    >
+                        PLN
                     </Button>
                 </>
             </Typography>
@@ -53,11 +70,12 @@ const ProductList = ({ totalData, countTotalCount }: Props) => {
                             price={price}
                             totalData={totalData}
                             countTotalCount={countTotalCount}
+                            currency={currency}
                         />
                     </Grid>
                 ))}
                 <div className="product-total">
-                    total EUR: {totalData.totalPrice}
+                    total : {totalData.totalPrice}
                 </div>
             </Grid>
         </>

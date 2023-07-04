@@ -5,6 +5,9 @@ import { useState } from 'react'
 type TotalData = {
     totalPrice: number
 }
+type Currency = {
+    price: number
+}
 
 const App = () => {
     const [totalData, setTotalData] = useState<TotalData>({
@@ -12,7 +15,15 @@ const App = () => {
     })
     const countTotalCount = (id: number, price: number) => {
         setTotalData((prevState) => ({
-            totalPrice: prevState.totalPrice + price,
+            totalPrice: prevState.totalPrice + price * currency.price,
+        }))
+    }
+    const [currency, setCurrency] = useState<Currency>({
+        price: 1,
+    })
+    const changeNewCurrency = (id: number, coefficient: number) => {
+        setCurrency((prevState) => ({
+            price: prevState.price * coefficient,
         }))
     }
 
@@ -21,6 +32,8 @@ const App = () => {
             <ProductList
                 totalData={totalData}
                 countTotalCount={countTotalCount}
+                currency={currency}
+                changeNewCurrency={changeNewCurrency}
             />
         </StyledEngineProvider>
     )
