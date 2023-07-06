@@ -11,7 +11,8 @@ type Props = {
     }
     countTotalCount: (id: number, price: number) => void
     currency: {
-        price: number
+        oldRate: number
+        newRate: number
     }
 }
 
@@ -31,7 +32,7 @@ const ProductListItem = ({
                     <h4 className="product-title">{title}</h4>
                     <div className="product-description">{description}</div>
                     <div className="product-price">
-                        {price * currency.price}
+                        {price * currency.oldRate}
                     </div>
                     <CardActions className="btn-wrap">
                         <Button

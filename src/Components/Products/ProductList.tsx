@@ -9,7 +9,8 @@ type Props = {
     }
     countTotalCount: (id: number, price: number) => void
     currency: {
-        price: number
+        oldRate: number
+        newRate: number
     }
     changeNewCurrency: (id: number, coefficient: number) => void
 }

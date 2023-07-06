@@ -6,7 +6,8 @@ type TotalData = {
     totalPrice: number
 }
 type Currency = {
-    price: number
+    oldRate: number
+    newRate: number
 }
 
 const App = () => {
@@ -15,15 +16,22 @@ const App = () => {
     })
     const countTotalCount = (id: number, price: number) => {
         setTotalData((prevState) => ({
-            totalPrice: prevState.totalPrice + price * currency.price,
+            totalPrice: prevState.totalPrice + price * currency.newRate,
         }))
     }
     const [currency, setCurrency] = useState<Currency>({
-        price: 1,
+        oldRate: 1,
+        newRate: 1,
     })
     const changeNewCurrency = (id: number, coefficient: number) => {
+        const oldRate = currency.newRate
+        const newRate = id * coefficient
         setCurrency((prevState) => ({
-            price: prevState.price * coefficient,
+            oldRate: oldRate,
+            newRate: newRate,
+        }))
+        setTotalData((prevState) => ({
+            totalPrice: prevState.totalPrice * (newRate / oldRate),
         }))
     }
 
