@@ -15,6 +15,7 @@ type Props = {
     currency: {
         oldRate: number
         newRate: number
+        name: string
     }
     changeNewCurrency: (total: number, price: number) => void
 }

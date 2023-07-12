@@ -26,6 +26,7 @@ const App = () => {
     const changeNewCurrency = (id: number, coefficient: number) => {
         const oldRate = currency.newRate
         const newRate = id * coefficient
+
         setCurrency((prevState) => ({
             oldRate: oldRate,
             newRate: newRate,

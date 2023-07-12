@@ -41,7 +41,7 @@ const ProductList = ({
                     </Button>
                     <Button
                         variant="outlined"
-                        onClick={() => changeNewCurrency(1, 1.09)}
+                        onClick={() => changeNewCurrency(1, 1.1)}
                     >
                         USD
                     </Button>
@@ -76,7 +76,7 @@ const ProductList = ({
                     </Grid>
                 ))}
                 <div className="product-total">
-                    total : {totalData.totalPrice}
+                    total: {Math.round(totalData.totalPrice)}
                 </div>
             </Grid>
         </>

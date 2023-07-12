@@ -32,7 +32,7 @@ const ProductListItem = ({
                     <h4 className="product-title">{title}</h4>
                     <div className="product-description">{description}</div>
                     <div className="product-price">
-                        {price * currency.newRate}
+                        {Math.round(price * currency.newRate)}
                     </div>
                     <CardActions className="btn-wrap">
                         <Button
